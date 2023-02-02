@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsiddiqu <gsiddiqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:29:11 by gohar             #+#    #+#             */
-/*   Updated: 2022/07/09 14:48:27 by gsiddiqu         ###   ########.fr       */
+/*   Updated: 2023/02/02 02:19:34 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,39 @@ static void	wasd(t_data *game)
 {
 	if (mlx_is_key_down(game->mlx, MLX_KEY_S)
 		&& (mlx_is_key_down(game->mlx, MLX_KEY_D)))
+		{
 		call_key_events(game, 1, false, 'r');
+			play_walk_sound(&game->player, game->player.pid, true);
+		}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_S)
 		&& (mlx_is_key_down(game->mlx, MLX_KEY_A)))
+		{
 		call_key_events(game, 1, false, 'l');
+			play_walk_sound(&game->player, game->player.pid, true);
+		}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_W))
+	{
 		call_key_events(game, 1, false, 'f');
+		play_walk_sound(&game->player, game->player.pid, true);
+	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_S))
+	{
 		call_key_events(game, 1, false, 'b');
+		play_walk_sound(&game->player, game->player.pid, true);
+	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_A))
+	{
 		call_key_events(game, 1, false, 'a');
+		play_walk_sound(&game->player, game->player.pid, true);
+	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_D))
+	{
 		call_key_events(game, 1, false, 'd');
+		play_walk_sound(&game->player, game->player.pid, true);
+	}
+	else if (!mlx_is_key_down(game->mlx, MLX_KEY_W) && !mlx_is_key_down(game->mlx, MLX_KEY_A)
+			&& !mlx_is_key_down(game->mlx, MLX_KEY_S) && !mlx_is_key_down(game->mlx, MLX_KEY_D))
+		mlx_stop_sound(game->player.pid[1]);
 }
 
 void	arrow_key_camera(t_data *game)

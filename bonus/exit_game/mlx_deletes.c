@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:50:54 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/09 15:59:39 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/02 02:27:53 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,9 @@ void	exit_game(t_data *game)
 	}
 	if (game->map.map)
 		free(game->map.map);
+	mlx_stop_sound(game->player.pid[0]);
+	mlx_stop_sound(game->player.pid[1]);
+	mlx_stop_sound(game->player.pid[2]);
+	mlx_stop_sound(game->player.pid[3]);
 	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:40:27 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/09 15:49:54 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/02 03:38:25 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ void	init_game_variables(t_data *game)
 	game->player.dir = calc_dir(game->player.p_dir);
 	game->player.firing = false;
 	game->player.f_aim = false;
+	game->player.running = false;
+	game->player.sprinting = false;
+	game->player.ammo = 20;
 	allocate_game_vars(game);
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   images_menus.c                                     :+:      :+:    :+:   */
+/*   loading_texture_pngs.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:24:39 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/06 18:31:04 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/02 03:53:52 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,67 @@ void	load_texture_pngs(t_data *game)
 	game->imgs.crosshair = mlx_load_png("./textures/crosshair.png");
 	if (game->imgs.tex_p == NULL)
 		error (game, "\033[0;31mError: Texture Crosshair: Path not found.\e[0m\n");
+		
+	game->imgs.a0 = mlx_load_png("./textures/ammo/0.png");
+	if (game->imgs.a0 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a1 = mlx_load_png("./textures/ammo/1.png");
+	if (game->imgs.a1 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a2 = mlx_load_png("./textures/ammo/2.png");
+	if (game->imgs.a2 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a3 = mlx_load_png("./textures/ammo/3.png");
+	if (game->imgs.a3 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a4 = mlx_load_png("./textures/ammo/4.png");
+	if (game->imgs.a4 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a5 = mlx_load_png("./textures/ammo/5.png");
+	if (game->imgs.a5 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a6 = mlx_load_png("./textures/ammo/6.png");
+	if (game->imgs.a6 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a7 = mlx_load_png("./textures/ammo/7.png");
+	if (game->imgs.a7 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a8 = mlx_load_png("./textures/ammo/8.png");
+	if (game->imgs.a8 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a9 = mlx_load_png("./textures/ammo/9.png");
+	if (game->imgs.a9 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a10 = mlx_load_png("./textures/ammo/10.png");
+	if (game->imgs.a10 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a11 = mlx_load_png("./textures/ammo/11.png");
+	if (game->imgs.a11 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a12 = mlx_load_png("./textures/ammo/12.png");
+	if (game->imgs.a12 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a13 = mlx_load_png("./textures/ammo/13.png");
+	if (game->imgs.a13 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a14 = mlx_load_png("./textures/ammo/14.png");
+	if (game->imgs.a14 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a15 = mlx_load_png("./textures/ammo/15.png");
+	if (game->imgs.a15 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a16 = mlx_load_png("./textures/ammo/16.png");
+	if (game->imgs.a16 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a17 = mlx_load_png("./textures/ammo/17.png");
+	if (game->imgs.a17 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a18 = mlx_load_png("./textures/ammo/18.png");
+	if (game->imgs.a18 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.a18 = mlx_load_png("./textures/ammo/19.png");
+	if (game->imgs.a18 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	
 	load_menu_pngs(game);
 }

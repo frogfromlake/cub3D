@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D_bonus_structs.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsiddiqu <gsiddiqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:03:08 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/09 15:19:13 by gsiddiqu         ###   ########.fr       */
+/*   Updated: 2023/02/02 03:38:05 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,27 @@ typedef struct s_texes
 	mlx_texture_t	*gun_fire;
 	mlx_texture_t	*crosshair;
 	mlx_texture_t	*counter;
+	
+	mlx_texture_t *a0;
+	mlx_texture_t *a1;
+	mlx_texture_t *a2;
+	mlx_texture_t *a3;
+	mlx_texture_t *a4;
+	mlx_texture_t *a5;
+	mlx_texture_t *a6;
+	mlx_texture_t *a7;
+	mlx_texture_t *a8;
+	mlx_texture_t *a9;
+	mlx_texture_t *a10;
+	mlx_texture_t *a11;
+	mlx_texture_t *a12;
+	mlx_texture_t *a13;
+	mlx_texture_t *a14;
+	mlx_texture_t *a15;
+	mlx_texture_t *a16;
+	mlx_texture_t *a17;
+	mlx_texture_t *a18;
+
 }	t_texes;
 
 typedef struct s_map
@@ -128,6 +149,10 @@ typedef struct s_player
 	float		p_old_dir_x;
 	bool		firing;
 	bool		f_aim;
+	pid_t		pid[4];
+	bool		running;
+	bool		sprinting;
+	int			ammo;
 }				t_player;
 
 typedef struct s_portal
@@ -213,6 +238,27 @@ typedef struct s_data
 	mlx_image_t	*counter;
 	mlx_image_t	*mm_img;
 	mlx_image_t	*fps;
+
+	mlx_image_t *a0;
+	mlx_image_t *a1;
+	mlx_image_t *a2;
+	mlx_image_t *a3;
+	mlx_image_t *a4;
+	mlx_image_t *a5;
+	mlx_image_t *a6;
+	mlx_image_t *a7;
+	mlx_image_t *a8;
+	mlx_image_t *a9;
+	mlx_image_t *a10;
+	mlx_image_t *a11;
+	mlx_image_t *a12;
+	mlx_image_t *a13;
+	mlx_image_t *a14;
+	mlx_image_t *a15;
+	mlx_image_t *a16;
+	mlx_image_t *a17;
+	mlx_image_t *a18;
+
 	t_texes		imgs;
 	t_map		map;
 	t_player	player;

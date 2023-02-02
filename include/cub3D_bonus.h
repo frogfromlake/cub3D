@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:49:49 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/08 00:09:32 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/02 02:02:32 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <time.h>
 
 # include "../libs/libft/include/libft.h"
-# include "../libs/mlx42/include/MLX42/MLX42.h"
+# include "../libs/MLX42/include/MLX42/MLX42.h"
 # include "../include/cub3D_bonus_structs.h"
 # include "../include/cub3D_bonus_defines.h"
 
@@ -73,6 +73,8 @@ time_t			timer(t_data *data);
 int				only_sprites(char c);
 int				is_player(char tile);
 int				get_resolution(void);
+void			run(t_data *game);
+void			play_walk_sound(t_player *player, pid_t *pid, bool run);
 
 /* ************************************************************************** */
 /* 	MINIMAP																	  */
@@ -128,6 +130,7 @@ void			mouse_hook(void *data);
 int				event_mouse_move(t_data *data);
 void			dying_condition(t_data *game);
 void			gun_fire(t_data *game, int button);
+void			mouse_controls(double x, double y, void *data);
 void			mouse_controls(double x, double y, void *data);
 int				event_mouse_press(t_data *game, int button, float x, float y);
 void			arrow_key_camera(t_data *game);

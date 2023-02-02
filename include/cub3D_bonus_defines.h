@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:03:08 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/09 16:07:17 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/01 23:48:28 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,14 @@
 # define V_MOVE	64.0
 
 # define MOUSE_SENSITIVITY 0.08
-# define ENEMY_SPEED 0.056
-# define PLAYER_SPEED 0.055
-# define PLAYER_SPRINT_SPEED 0.05
+# define ENEMY_SPEED 0.05
+# define PLAYER_SPEED 0.05
+# define PLAYER_SPRINT_SPEED 0.04
 
-//timer for the lose condition
 // FPS
 # define SHOW_FPS 1
 // Time available to reach goal
-# define TIMER 0.02
+# define TIMER 0.1 // 0.02
 
 # define ESC 53
 # define W 13

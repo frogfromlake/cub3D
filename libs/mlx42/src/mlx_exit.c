@@ -6,7 +6,7 @@
 /*   By: W2Wizard <w2.wizzard@gmail.com>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/28 02:43:22 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/04/13 00:08:15 by w2wizard      ########   odam.nl         */
+/*   Updated: 2022/11/26 14:23:55 by jvan-hal      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@ static void mlx_free_image(void* content)
 {
 	mlx_image_t* img = content;
 
-	mlx_freen(3, img->context, img->pixels, img->instances);
+	mlx_freen(4, img->context, img->pixels, img->instances, img);
 }
 
 //= Public =//
 
 void mlx_close_window(mlx_t* mlx)
 {
-	MLX_ASSERT(!mlx);
+	MLX_NONNULL(mlx);
 	glfwSetWindowShouldClose(mlx->window, true);
 }
 
 /**
  * All of glfw & glads resources are cleaned up by the terminate function.
- * Now its time to cleanup our own mess.
+ * Now it's time to cleanup our own mess.
  */
 void mlx_terminate(mlx_t* mlx)
 {
-	MLX_ASSERT(!mlx);
+	MLX_NONNULL(mlx);
 
 	mlx_ctx_t *const mlxctx = mlx->context;
 

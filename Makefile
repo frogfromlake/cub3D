@@ -87,7 +87,8 @@ BONUS_SRCS	= main.c \
 			  utils_bonus.c \
 			  end_conditions.c \
 			  mlx_deletes.c \
-			  loading_filedata_utils.c
+			  loading_filedata_utils.c \
+			  audio.c
 
 INCLUDES	= -I./libs/libft/include/ -I./libs/mlx42/include/MLX42/
 LIBS		= -L ./libs/mlx42/ -lmlx42 -L ./libs/libft -lft -ldl -lglfw -lm

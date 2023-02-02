@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 23:45:09 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/09 16:10:47 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/02 04:22:11 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	event_mouse_press(t_data *game, int button, float x, float y)
 				game->start_img->enabled = false;
 				game->lose = false;
 				game->reset = true;
+				game->a18->enabled = true;
 			}
 			else if (game->main_img->enabled == false
 				&& x > 700 && x < 900 && y > 620 && y < 760)
@@ -58,19 +59,19 @@ int	event_mouse_press(t_data *game, int button, float x, float y)
 
 static void	handle_mousepos(t_data *game, double x, double y)
 {
-	if (game->mouse.init_mousepos == false)
+		if (!mlx_is_key_down(game->mlx, MLX_KEY_TAB))
 	{
-		game->mouse.x_pos = WIDTH * 0.5;
-		game->mouse.y_pos = HEIGHT * 0.5;
-		game->mouse.x_new = game->mouse.x_pos;
-		game->mouse.y_new = game->mouse.y_pos;
-		game->mouse.init_mousepos = true;
-	}
-	if ((x < 0 || y < 0 || y > HEIGHT
-			|| x > WIDTH))
-	{
-		mlx_set_mouse_pos(game->mlx, WIDTH * 0.5, HEIGHT * 0.5);
-		return ;
+		if (game->mouse.init_mousepos == false)
+		{
+			game->mouse.x_pos = WIDTH * 0.5;
+			game->mouse.y_pos = HEIGHT * 0.5;
+			game->mouse.x_new = game->mouse.x_pos;
+			game->mouse.y_new = game->mouse.y_pos;
+			game->mouse.init_mousepos = true;
+		}
+		if ((x < 0 || y < 0 || y > HEIGHT
+				|| x > WIDTH))
+			mlx_set_mouse_pos(game->mlx, WIDTH * 0.5, HEIGHT * 0.5);
 	}
 }
 
@@ -81,9 +82,9 @@ static void	rotation_camera(t_data *game)
 	if (game->mouse.x_new > game->mouse.x_pos + 1)
 		call_key_events(game, -1, true, 'd');
 	if (game->mouse.y_new < game->mouse.y_pos)
-		game->mouse.pitch += 500 * game->mouse.rotation_speed;
+		game->mouse.pitch += 450 * game->mouse.rotation_speed;
 	if (game->mouse.y_new > game->mouse.y_pos)
-		game->mouse.pitch -= 500 * game->mouse.rotation_speed;
+		game->mouse.pitch -= 450 * game->mouse.rotation_speed;
 }
 
 void	mouse_controls(double x, double y, void *data)
@@ -91,11 +92,6 @@ void	mouse_controls(double x, double y, void *data)
 	t_data	*game;
 
 	game = (t_data *)data;
-	if (mlx_is_key_down(game->mlx, MLX_KEY_TAB))
-	{
-		mlx_set_cursor_mode(game->mlx, MLX_MOUSE_NORMAL);
-		return ;
-	}
 	game->mouse.x_new = x;
 	game->mouse.y_new = y;
 	handle_mousepos(game, x, y);

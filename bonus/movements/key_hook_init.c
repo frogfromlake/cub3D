@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsiddiqu <gsiddiqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:04:49 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/09 16:41:28 by gsiddiqu         ###   ########.fr       */
+/*   Updated: 2023/02/02 01:56:05 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ static void	minimap_zoom_hook(t_data *game)
 void	init_hook_data(t_data *game)
 {
 	game->player.move_speed = PLAYER_SPEED;
+	game->player.sprinting = false;
 	game->player.sprint_speed = 0;
 	if (mlx_is_key_down(game->mlx, MLX_KEY_LEFT_SHIFT))
-			game->player.sprint_speed = PLAYER_SPRINT_SPEED;
+	{
+		game->player.sprinting = true;
+		game->player.sprint_speed = PLAYER_SPRINT_SPEED;
+	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_ESCAPE))
 		exit_game(game);
 	if (mlx_is_key_down(game->mlx, MLX_KEY_TAB))

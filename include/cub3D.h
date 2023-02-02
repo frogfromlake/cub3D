@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:49:49 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/06 19:09:30 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/02 01:10:44 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include <time.h>
 
 # include "../libs/libft/include/libft.h"
-# include "../libs/mlx42/include/MLX42/MLX42.h"
+# include "../libs/MLX42/include/MLX42/MLX42.h"
 # include "../include/cub3D_structs.h"
 # include "../include/cub3D_defines.h"
 
