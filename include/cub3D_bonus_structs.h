@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:03:08 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 03:38:05 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 22:24:25 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,10 @@ typedef struct s_texes
 	mlx_texture_t *a16;
 	mlx_texture_t *a17;
 	mlx_texture_t *a18;
-
+	mlx_texture_t *a19;
+	
+	mlx_texture_t *reload;
+	
 }	t_texes;
 
 typedef struct s_map
@@ -149,9 +152,10 @@ typedef struct s_player
 	float		p_old_dir_x;
 	bool		firing;
 	bool		f_aim;
-	pid_t		pid[4];
+	pid_t		pid[5];
 	bool		running;
 	bool		sprinting;
+	bool		reload;
 	int			ammo;
 }				t_player;
 
@@ -258,6 +262,9 @@ typedef struct s_data
 	mlx_image_t *a16;
 	mlx_image_t *a17;
 	mlx_image_t *a18;
+	mlx_image_t *a19;
+	
+	mlx_image_t *reload;
 
 	t_texes		imgs;
 	t_map		map;

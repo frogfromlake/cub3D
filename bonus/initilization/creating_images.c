@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:34:56 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 04:18:55 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 21:34:20 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,12 @@ static void	create_images_2(t_data *game)
 	game->a18 = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	if (game->a18 == NULL)
 		error (game, "\033[0;31mError: Allocation for ammo_img returned Null.\e[0m\n");
+	game->a19 = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+	if (game->a19 == NULL)
+		error (game, "\033[0;31mError: Allocation for ammo_img returned Null.\e[0m\n");
+	game->reload = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+	if (game->reload == NULL)
+		error (game, "\033[0;31mError: Allocation for reload_img returned Null.\e[0m\n");
 }
 
 void	create_images(t_data *game)
@@ -231,6 +237,14 @@ void	load_images(t_data *game)
 	if (game->a18 == NULL)
 		error (game, "\033[0;31mError: Texture to img conversion"
 			" for a18 returned Null.\e[0m\n");
+	game->a19 = mlx_texture_to_image(game->mlx, game->imgs.a19);
+	if (game->a19 == NULL)
+		error (game, "\033[0;31mError: Texture to img conversion"
+			" for a18 returned Null.\e[0m\n");
+	game->reload = mlx_texture_to_image(game->mlx, game->imgs.reload);
+	if (game->reload == NULL)
+		error (game, "\033[0;31mError: Texture to img conversion"
+			" for reload returned Null.\e[0m\n");
 
 	game->mm_img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 }
@@ -247,6 +261,7 @@ void	set_mlx_images(t_data *game)
 	game->gun_img->enabled = false;
 	game->start_img->enabled = true;
 	game->crosshair->enabled = false;
+	game->reload->enabled = false;
 }
 
 void	put_images_to_window(t_data *game)
@@ -263,9 +278,7 @@ void	put_images_to_window(t_data *game)
 	mlx_image_to_window(game->mlx, game->start_img, 0, 0);
 	mlx_image_to_window(game->mlx,
 		game->crosshair, WIDTH * 0.5 - 32, HEIGHT * 0.5 - 32);
-	mlx_image_to_window(game->mlx, game->counter, 0, 0);
-	mlx_image_to_window(game->mlx, game->fps, 0, 0);
-	
+
 	mlx_image_to_window(game->mlx, game->a0, 0, HEIGHT - 200);
 	mlx_image_to_window(game->mlx, game->a1, 0, HEIGHT - 200);
 	mlx_image_to_window(game->mlx, game->a2, 0, HEIGHT - 200);
@@ -285,6 +298,16 @@ void	put_images_to_window(t_data *game)
 	mlx_image_to_window(game->mlx, game->a16, 0, HEIGHT - 200);
 	mlx_image_to_window(game->mlx, game->a17, 0, HEIGHT - 200);
 	mlx_image_to_window(game->mlx, game->a18, 0, HEIGHT - 200);
+	mlx_image_to_window(game->mlx, game->a19, 0, HEIGHT - 200);
+	mlx_image_to_window(game->mlx, game->reload, WIDTH * 0.5, HEIGHT * 0.5 + 30);
+	mlx_image_to_window(game->mlx, game->fps, 0, 0);
+	mlx_image_to_window(game->mlx, game->counter, 0, 0);
+
+	disable_ammo(game);
+}
+
+void disable_ammo(t_data *game)
+{
 	game->a0->enabled = false;
 	game->a1->enabled = false;
 	game->a2->enabled = false;
@@ -304,5 +327,5 @@ void	put_images_to_window(t_data *game)
 	game->a16->enabled = false;
 	game->a17->enabled = false;
 	game->a18->enabled = false;
-	
+	game->a19->enabled = false;
 }

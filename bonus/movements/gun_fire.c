@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:20:35 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 04:22:08 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 22:54:15 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,99 +32,106 @@ void	dying_condition(t_data *game)
 	}
 }
 
-static void	ammo_count(t_data *game)
+void	ammo_count(t_data *game)
 {
+	if (game->player.ammo == 20)
+		game->a19->enabled = true;
 	if (game->player.ammo == 19)
+	{
+		game->a18->enabled = true;
+		game->a19->enabled = false;
+	}
+	else if (game->player.ammo == 18)
 	{
 		game->a17->enabled = true;
 		game->a18->enabled = false;
 	}
-	else if (game->player.ammo == 18)
+	else if (game->player.ammo == 17)
 	{
 		game->a16->enabled = true;
 		game->a17->enabled = false;
 	}
-	else if (game->player.ammo == 17)
+	else if (game->player.ammo == 16)
 	{
 		game->a15->enabled = true;
 		game->a16->enabled = false;
 	}
-	else if (game->player.ammo == 16)
+	else if (game->player.ammo == 15)
 	{
 		game->a14->enabled = true;
 		game->a15->enabled = false;
 	}
-	else if (game->player.ammo == 15)
+	else if (game->player.ammo == 14)
 	{
 		game->a13->enabled = true;
 		game->a14->enabled = false;
 	}
-	else if (game->player.ammo == 14)
+	else if (game->player.ammo == 13)
 	{
 		game->a12->enabled = true;
 		game->a13->enabled = false;
 	}
-	else if (game->player.ammo == 13)
+	else if (game->player.ammo == 12)
 	{
 		game->a11->enabled = true;
 		game->a12->enabled = false;
 	}
-	else if (game->player.ammo == 12)
+	else if (game->player.ammo == 11)
 	{
 		game->a10->enabled = true;
 		game->a11->enabled = false;
 	}
-	else if (game->player.ammo == 11)
+	else if (game->player.ammo == 10)
 	{
 		game->a9->enabled = true;
 		game->a10->enabled = false;
 	}
-	else if (game->player.ammo == 10)
+	else if (game->player.ammo == 9)
 	{
 		game->a8->enabled = true;
 		game->a9->enabled = false;
 	}
-	else if (game->player.ammo == 9)
+	else if (game->player.ammo == 8)
 	{
 		game->a7->enabled = true;
 		game->a8->enabled = false;
 	}
-	else if (game->player.ammo == 8)
+	else if (game->player.ammo == 7)
 	{
 		game->a6->enabled = true;
 		game->a7->enabled = false;
 	}
-	else if (game->player.ammo == 7)
+	else if (game->player.ammo == 6)
 	{
 		game->a5->enabled = true;
 		game->a6->enabled = false;
 	}
-	else if (game->player.ammo == 6)
+	else if (game->player.ammo == 5)
 	{
 		game->a4->enabled = true;
 		game->a5->enabled = false;
 	}
-	else if (game->player.ammo == 5)
+	else if (game->player.ammo == 4)
 	{
 		game->a3->enabled = true;
 		game->a4->enabled = false;
 	}
-	else if (game->player.ammo == 4)
+	else if (game->player.ammo == 3)
 	{
 		game->a2->enabled = true;
 		game->a3->enabled = false;
 	}
-	else if (game->player.ammo == 3)
+	else if (game->player.ammo == 2)
 	{
 		game->a1->enabled = true;
 		game->a2->enabled = false;
 	}
-	else if (game->player.ammo == 2)
+	else if (game->player.ammo == 1)
 	{
 		game->a0->enabled = true;
 		game->a1->enabled = false;
 	}
-	else if (game->player.ammo == 1)
+	else if (game->player.ammo == 0)
 	{
 		game->a0->enabled = false;
 	}
@@ -143,13 +150,13 @@ void	gun_fire(t_data *game, int button)
 	}
 	if (button == 0)
 	{
-		if (clock() - frame > CLOCKS_PER_SEC / 5 && game->player.ammo > 0)
+		if (clock() - frame > CLOCKS_PER_SEC / 5 && game->player.ammo > 0 && game->player.reload == false)
 		{
 			frame = clock();
 			dying_condition(game);
 			game->gun_img->enabled = false;
 			game->gun_fire->enabled = true;
-			if (game->main_img->enabled == true)
+			if (game->main_img->enabled == true && game->player.reload == false)
 			{
 				mlx_start_sound(0, "afplay -v 0.6 ./bonus/audio/Gun.mp3 &");
 				game->player.ammo--;

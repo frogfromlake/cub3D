@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:01:13 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/08 00:21:43 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 22:47:40 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	set_images(t_data *game)
 	game->crosshair->enabled = true;
 	game->runtime = 0;
 	game->main_img->enabled = true;
-	game->gun_img->enabled = true;
 	game->lose_img->enabled = false;
+	game->gun_img->enabled = true;
 	game->gun_fire->enabled = false;
 	game->start_img->enabled = false;
 	game->win = false;
@@ -47,6 +47,7 @@ void	reset_handler(t_data *game)
 			}
 		}
 		game->reset = false;
+		ammo_count(game);
 	}
 }
 
@@ -66,13 +67,19 @@ void	win_handler(t_data *game)
 		game->main_img->enabled = false;
 		game->gun_img->enabled = false;
 		game->gun_fire->enabled = false;
+		game->reload->enabled = false;
 		mlx_set_cursor_mode(game->mlx, MLX_MOUSE_NORMAL);
+		mlx_stop_sound(game->player.pid[0]);
+		mlx_stop_sound(game->player.pid[1]);
+		mlx_stop_sound(game->player.pid[2]);
+		mlx_stop_sound(game->player.pid[3]);
+		mlx_stop_sound(game->player.pid[4]);
+		disable_ammo(game);
 	}
 }
 
 void	lose_handler(t_data *game)
 {
-	mlx_set_cursor_mode(game->mlx, MLX_MOUSE_NORMAL);
 	game->counter->enabled = false;
 	game->fps->enabled = false;
 	game->lose_img->enabled = true;
@@ -80,6 +87,14 @@ void	lose_handler(t_data *game)
 	game->crosshair->enabled = false;
 	game->gun_img->enabled = false;
 	game->gun_fire->enabled = false;
+	game->reload->enabled = false;
+	mlx_set_cursor_mode(game->mlx, MLX_MOUSE_NORMAL);
+	mlx_stop_sound(game->player.pid[0]);
+	mlx_stop_sound(game->player.pid[1]);
+	mlx_stop_sound(game->player.pid[2]);
+	mlx_stop_sound(game->player.pid[3]);
+	mlx_stop_sound(game->player.pid[4]);
+	disable_ammo(game);
 }
 
 void	minimap_handler(t_data *game)

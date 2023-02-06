@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:24:39 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 03:53:52 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/03 21:02:46 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,11 @@ void	load_texture_pngs(t_data *game)
 	game->imgs.a18 = mlx_load_png("./textures/ammo/18.png");
 	if (game->imgs.a18 == NULL)
 		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
-	game->imgs.a18 = mlx_load_png("./textures/ammo/19.png");
-	if (game->imgs.a18 == NULL)
+	game->imgs.a19 = mlx_load_png("./textures/ammo/19.png");
+	if (game->imgs.a19 == NULL)
+		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
+	game->imgs.reload = mlx_load_png("./textures/reload.png");
+	if (game->imgs.reload == NULL)
 		error (game, "\033[0;31mError: Texture: Path not found.\e[0m\n");
 	
 	load_menu_pngs(game);

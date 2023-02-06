@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:59:48 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/06 21:35:10 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 19:52:59 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ time_t	timer(t_data *data)
 			mlx_delete_image(data->mlx, data->fps);
 		count = ft_itoa((data->time_count - (clock()
 						- data->runtime) / CLOCKS_PER_SEC));
+		data->counter = mlx_put_string(data->mlx, count, WIDTH * 0.5, 10);
 		tmp = ft_itoa(data->fps_val);
 		fps = ft_strjoin("FPS: ", tmp);
-		data->counter = mlx_put_string(data->mlx, count, WIDTH * 0.5, 10);
 		if (SHOW_FPS == true)
-			data->fps = mlx_put_string(data->mlx, fps, 15, HEIGHT - 30);
+			data->fps = mlx_put_string(data->mlx, fps, 0, 0);
 		free(count);
 		free(fps);
 		free(tmp);

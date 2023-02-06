@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 23:45:09 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 04:22:11 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 22:53:49 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	event_mouse_press(t_data *game, int button, float x, float y)
 				game->start_img->enabled = false;
 				game->lose = false;
 				game->reset = true;
-				game->a18->enabled = true;
+				game->player.ammo = 20;
+				ammo_count(game);
 			}
 			else if (game->main_img->enabled == false
 				&& x > 700 && x < 900 && y > 620 && y < 760)

@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 19:03:08 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/01 23:48:28 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 18:34:36 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 // FPS
 # define SHOW_FPS 1
 // Time available to reach goal
-# define TIMER 0.1 // 0.02
+# define TIMER 0.02 // 0.02
 
 # define ESC 53
 # define W 13

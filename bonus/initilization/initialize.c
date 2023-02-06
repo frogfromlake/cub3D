@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:25:27 by gohar             #+#    #+#             */
-/*   Updated: 2023/02/02 04:27:08 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 22:24:07 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	init_data(t_data *game)
 	game->player.pid[0] = mlx_get_pid("./bonus/audio/Falling_in_reverse_Drugs.mp3");
 	game->player.pid[1] = 0;
 	game->player.pid[2] = 0;
-	game->player.pid[3] = mlx_get_pid("./bonus/audio/Gun.mp3");;
+	game->player.pid[3] = mlx_get_pid("./bonus/audio/Gun.mp3");
+	game->player.pid[4] = mlx_get_pid("./bonus/audio/reload.mp3");
 	return (0);
 }

@@ -6,15 +6,16 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 00:01:05 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 01:53:05 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/03 20:56:29 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D_bonus.h"
 
-void	play_walk_sound(t_player *player, pid_t *pid, bool run)
+void	play_walk_sound(t_data *game, pid_t *pid, bool state)
 {
-	if (run && player->running)
+	run(game);
+	if (state && game->player.sprinting)
 	{
 		mlx_stop_sound(pid[1]);
 		mlx_start_sound(pid[2], "afplay ./bonus/audio/sprinting.mp3 &");

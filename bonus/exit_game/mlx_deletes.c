@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:50:54 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 02:27:53 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 22:25:45 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void	exit_game(t_data *game)
 	mlx_stop_sound(game->player.pid[1]);
 	mlx_stop_sound(game->player.pid[2]);
 	mlx_stop_sound(game->player.pid[3]);
+	mlx_stop_sound(game->player.pid[4]);
 	exit(EXIT_SUCCESS);
 }

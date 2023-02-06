@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:49:49 by fquist            #+#    #+#             */
-/*   Updated: 2023/02/02 02:02:32 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/03 20:53:37 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,9 @@ int				only_sprites(char c);
 int				is_player(char tile);
 int				get_resolution(void);
 void			run(t_data *game);
-void			play_walk_sound(t_player *player, pid_t *pid, bool run);
-
+void			play_walk_sound(t_data *game, pid_t *pid, bool state);
+void 			disable_ammo(t_data *game);
+void			ammo_count(t_data *game);
 /* ************************************************************************** */
 /* 	MINIMAP																	  */
 /* ************************************************************************** */

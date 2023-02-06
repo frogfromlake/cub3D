@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsiddiqu <gsiddiqu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 14:18:52 by fquist            #+#    #+#             */
-/*   Updated: 2022/07/08 22:46:16 by gsiddiqu         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:25:06 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
 
-// slow down loop hook for higher fps?
 int	main(int argc, char **argv)
 {
 	t_data		data;

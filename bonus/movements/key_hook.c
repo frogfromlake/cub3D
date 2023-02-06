@@ -6,7 +6,7 @@
 /*   By: fquist <fquist@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:29:11 by gohar             #+#    #+#             */
-/*   Updated: 2023/02/02 02:19:34 by fquist           ###   ########.fr       */
+/*   Updated: 2023/02/06 22:45:20 by fquist           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,35 +48,35 @@ static void	wasd(t_data *game)
 {
 	if (mlx_is_key_down(game->mlx, MLX_KEY_S)
 		&& (mlx_is_key_down(game->mlx, MLX_KEY_D)))
-		{
+	{
 		call_key_events(game, 1, false, 'r');
-			play_walk_sound(&game->player, game->player.pid, true);
-		}
+		play_walk_sound(game, game->player.pid, true);
+	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_S)
-		&& (mlx_is_key_down(game->mlx, MLX_KEY_A)))
-		{
+	&& (mlx_is_key_down(game->mlx, MLX_KEY_A)))
+	{
 		call_key_events(game, 1, false, 'l');
-			play_walk_sound(&game->player, game->player.pid, true);
-		}
+		play_walk_sound(game, game->player.pid, true);
+	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_W))
 	{
 		call_key_events(game, 1, false, 'f');
-		play_walk_sound(&game->player, game->player.pid, true);
+		play_walk_sound(game, game->player.pid, true);
 	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_S))
 	{
 		call_key_events(game, 1, false, 'b');
-		play_walk_sound(&game->player, game->player.pid, true);
+		play_walk_sound(game, game->player.pid, true);
 	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_A))
 	{
 		call_key_events(game, 1, false, 'a');
-		play_walk_sound(&game->player, game->player.pid, true);
+		play_walk_sound(game, game->player.pid, true);
 	}
 	if (mlx_is_key_down(game->mlx, MLX_KEY_D))
 	{
 		call_key_events(game, 1, false, 'd');
-		play_walk_sound(&game->player, game->player.pid, true);
+		play_walk_sound(game, game->player.pid, true);
 	}
 	else if (!mlx_is_key_down(game->mlx, MLX_KEY_W) && !mlx_is_key_down(game->mlx, MLX_KEY_A)
 			&& !mlx_is_key_down(game->mlx, MLX_KEY_S) && !mlx_is_key_down(game->mlx, MLX_KEY_D))
@@ -125,6 +125,14 @@ void	key_hook(void *data)
 		game->fps_val = CLOCKS_PER_SEC / ((end_frame - begin_frame));
 		if (game->time_count - timer(game) == 0)
 			game->lose = true;
+		if (game->player.reload == true)
+		{
+			game->gun_img->enabled = false;
+			game->a19->enabled = true;
+			game->reload->enabled = true;
+		}
+		else if (game->player.reload == false)
+			game->reload->enabled = false;
 	}
 	else
 		lose_handler(game);
